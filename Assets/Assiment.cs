@@ -34,7 +34,7 @@ public class NewBehaviourScript : MonoBehaviour
             Debug.Log($"oh your number of cats is smaller than {number}, that's a bummer");
         }
     }
-
+//great
     private void CatType(string Color)
     {
         switch(Color)
