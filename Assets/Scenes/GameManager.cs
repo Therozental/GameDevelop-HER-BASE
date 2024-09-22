@@ -4,27 +4,37 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.UI;
-using Button = UnityEngine.UIElements.Button;
 
-public class Buttonmanager : MonoBehaviour
+
+
+public class GameManager : MonoBehaviour
 {
-    Button[,] TicTacToeGrid = new Button[3, 3];
-    //List<List<Button>> TicTacToeGrid = new List<List<Button>>();
+
+    /* TODO: 
+     * create array for the buttons
+     * create a method that do something after button is pressed
+     * create method to manage the turns of the X/O
+     * understand how to manage the win condition??
+     */
+
+    [SerializeField]
+    int[,] TicTacToeBoard;
 
     void Start()
     {
+        
+        
         for (int row = 0; row < 3; row++)
         {
-            gameObject.GetComponentAtIndex(row);
-
             for (int column = 0; column < 3; column++)
             {
-                gameObject.GetComponentAtIndex(column);
 
-                //Button ButtonPlacement = new Button();
-                //TicTacToeGrid[row, column] = ButtonPlacement;
+                GameObject(Button)
+                TicTacToeBoard[row, column] = button;
+               
             }
         }
+        
     }
 
     /*
@@ -34,10 +44,11 @@ public class Buttonmanager : MonoBehaviour
     }
     */
 
-    void SwitchType() //switch between X and O
+    public void SwitchType() //switch between X and O
     {
-
+        
     }
+
 
     /*
     void WinCondition(Button )

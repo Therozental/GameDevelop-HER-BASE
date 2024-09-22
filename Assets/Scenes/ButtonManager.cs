@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Button = UnityEngine.UIElements.Button;
 
-public class ButtonText : MonoBehaviour
+
+public class ButtonManager : MonoBehaviour
 {
-    public TMP_Text buttonText;
+    
+
+    /* TODO: 
+     * create method to signal a button isPressed and send it to the GameManager
+     * create method to Change button text to "X"
+     * create method to Change button text to "O"
+     */
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +29,21 @@ public class ButtonText : MonoBehaviour
     }
 
     public void OnButtonPressed()
+    {
+        Debug.Log("button has been pressed");
+    }
+
+    public void ChangeText()
+    {
+
+    }
+    public void ChangeToO()
+    {
+
+    }
+
+    /*
+     * public void XisPressed()
     {
         bool XisPressed = false;
         if (XisPressed == true)
@@ -40,4 +64,5 @@ public class ButtonText : MonoBehaviour
     {
         buttonText.text = "X";
     }
+    */
 }
