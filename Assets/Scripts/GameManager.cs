@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.UI;
-
-
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,37 +14,38 @@ public class GameManager : MonoBehaviour
      * create method to manage the turns of the X/O
      * understand how to manage the win condition??
      */
-
+    int row = 0;
+    int column = 0;
     [SerializeField]
-    int[,] TicTacToeBoard;
+    ButtonManager[,] TicTacToeBoard;
 
     void Start()
     {
-        
-        
+      
+        //  GameObject(Button);
+        //  TicTacToeBoard[row, column] = button;
+    }
+
+
+    void Update() 
+    {
+      
+    }
+    
+
+    public void SwitchTurn(ButtonManager.ButtonText) //switch between X and O
+    {
+
         for (int row = 0; row < 3; row++)
         {
-            for (int column = 0; column < 3; column++)
+            for (int col = 0; col < 3; col++)
             {
-
-                GameObject(Button)
-                TicTacToeBoard[row, column] = button;
-               
+                TicTacToeBoard[row, col] = (row + col) % 2 == 0 ? ButtonText.text = "X" : "o";
             }
+            //  if(isPressed == true)
+            {
+            
         }
-        
-    }
-
-    /*
-    void Update() //gameloop
-    {
-        
-    }
-    */
-
-    public void SwitchType() //switch between X and O
-    {
-        
     }
 
 
