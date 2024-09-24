@@ -8,38 +8,49 @@ using System;
 public class Button : MonoBehaviour
 {
 
-    public Text ButtonText;
+    public TextMeshProUGUI ButtonText;
     public bool isPressed = false;
+    public GameManager gameManager;
+    string buttonMode;
+    
 
 
     /* TODO: 
      * create method to signal a button isPressed and send it to the GameManager
      */
 
-    public bool isButtonPressed()
+    public void OnButtonClick()
     {
-        if(isPressed)
+        if(isPressed == true)
         {
-            return true;
+            return;
         }
-        return false;
-    }
-    
-    public void OnButtonPressed()
-    {
-      // return true;
+       ChangeText();
+       gameManager.SwitchTurns();
        isPressed = true;
+       Debug.Log("button was pressed");
+        gameManager.
     }
 
-    public void ChangeToO()
+    public void ChangeText()
     {
-        ButtonText.text = "O";
+        if(gameManager.isXTurn() == true)
+        {
+            buttonMode = ButtonText.text = "X";
+            
+        }
+        else
+        {
+            buttonMode = ButtonText.text = "O";
+             
+
+        }
     }
 
-    public void ChangeToX()
-    {
-        ButtonText.text = "X";
-    }
+   
+
+
+
 
     /*
     public void XisPressed()
