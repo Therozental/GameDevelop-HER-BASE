@@ -3,35 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
-
-
-public class ButtonManager : MonoBehaviour
+public class Button : MonoBehaviour
 {
 
     public Text ButtonText;
     public bool isPressed = false;
+
+
     /* TODO: 
      * create method to signal a button isPressed and send it to the GameManager
      */
 
-    public ButtonManager(bool isPressed_)
+    public bool isButtonPressed()
     {
-        isPressed = isPressed_;
+        if(isPressed)
+        {
+            return true;
+        }
+        return false;
     }
     
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnButtonPressed()
     {
       // return true;
