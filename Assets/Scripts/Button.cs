@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.UIElements;
 
 public class Button : MonoBehaviour
 {
@@ -11,13 +12,7 @@ public class Button : MonoBehaviour
     public TextMeshProUGUI ButtonText;
     public bool isPressed = false;
     public GameManager gameManager;
-    string buttonMode;
-    
-
-
-    /* TODO: 
-     * create method to signal a button isPressed and send it to the GameManager
-     */
+    public string symbol = null;
 
     public void OnButtonClick()
     {
@@ -28,42 +23,21 @@ public class Button : MonoBehaviour
        ChangeText();
        gameManager.SwitchTurns();
        isPressed = true;
-       Debug.Log("button was pressed");
-        gameManager.
+       gameManager.CheckWinX();
+       gameManager.CheckWinO();
     }
 
     public void ChangeText()
     {
         if(gameManager.isXTurn() == true)
         {
-            buttonMode = ButtonText.text = "X";
-            
+            ButtonText.text = "X";
+            symbol = "X";
         }
         else
-        {
-            buttonMode = ButtonText.text = "O";
-             
-
-        }
-    }
-
-   
-
-
-
-
-    /*
-    public void XisPressed()
-    {
-        bool XisPressed = false;
-        if (XisPressed == true)
         {
             ButtonText.text = "O";
-        }
-        else
-        {
-            ButtonText.text = "X";
+            symbol = "O";
         }
     }
-    */
 }

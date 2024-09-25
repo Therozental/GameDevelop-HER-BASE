@@ -18,13 +18,14 @@ public class GameManager : MonoBehaviour
     // [SerializeField] GameObject[,] TicTacToeBoard = new GameObject[3,3];
 
     //GameObject[,] ButtonLis = new GameObject[3,3];
-    // [SerializeField] List<GameObject> ButtonList = new List<GameObject>();
+    // [SerializeField] List<GameObject> button = new List<GameObject>();
 
     bool XTurn = true;
-    GameObject WinMessage;
-    
+    public GameObject X_WINS;
+    public GameObject O_WINS;
+
     [SerializeField] Button[,] TicTacToeBoard = new Button[3, 3];  // 2D array for buttons
-    [SerializeField] Button[] buttonList;
+    [SerializeField] Button[] button;
 
     void Start()
     {
@@ -34,65 +35,116 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                
-                TicTacToeBoard[i, j] = buttonList[index];
-                Debug.Log($"button{buttonList[index]} position is on {TicTacToeBoard[i, j]}");
+
+                TicTacToeBoard[i, j] = button[index];
+                Debug.Log($"button{button[index]} position is on {TicTacToeBoard[i, j]}");
                 index++;
             }
         }
     }
 
-    void Update()
+    public bool isXTurn()
     {
-        
-    }
-
-   public bool isXTurn()
-   {
-        if(!XTurn) // if it's not x turn
+        if (!XTurn) // if it's not x turn
         {
             return false;
         }
         return true; // if it is x turn
-   }
-
+    }
 
     public void SwitchTurns() //switch between X and O
     {
-            XTurn = !XTurn;
-
-
+        XTurn = !XTurn;
     }
 
-    void isThereAWin()
+    public void CheckWinX()
     {
-        //loop of get buttonmode
-      if (buttonList[0] == buttonList[1] == buttonList[2])
+        //columns
+        if ((button[0].symbol == "X") && (button[1].symbol == "X") && (button[2].symbol == "X"))
         {
-            WinMessage.SetActive(true);
+            X_WINS.SetActive(true);
         }
+        if ((button[3].symbol == "X") && (button[4].symbol == "X") && (button[5].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        if ((button[6].symbol == "X") && (button[7].symbol == "X") && (button[8].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        //rows:
+        if ((button[0].symbol == "X") && (button[3].symbol == "X") && (button[6].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        if ((button[1].symbol == "X") && (button[4].symbol == "X") && (button[7].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        if ((button[2].symbol == "X") && (button[5].symbol == "X") && (button[8].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        // diagonal
+        if ((button[0].symbol == "X") && (button[4].symbol == "X") && (button[8].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        if ((button[2].symbol == "X") && (button[4].symbol == "X") && (button[6].symbol == "X"))
+        {
+            X_WINS.SetActive(true);
+        }
+        return;
+    }
+
+    public void CheckWinO()
+    {
+        //columns
+        if ((button[0].symbol == "O") && (button[1].symbol == "O") && (button[2].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        if ((button[3].symbol == "O") && (button[4].symbol == "O") && (button[5].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        if ((button[6].symbol == "O") && (button[7].symbol == "O") && (button[8].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        //rows:
+        if ((button[0].symbol == "O") && (button[3].symbol == "O") && (button[6].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        if ((button[1].symbol == "O") && (button[4].symbol == "O") && (button[7].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        if ((button[2].symbol == "O") && (button[5].symbol == "O") && (button[8].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        // diagonal
+        if ((button[0].symbol == "O") && (button[4].symbol == "O") && (button[8].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        if ((button[2].symbol == "O") && (button[4].symbol == "O") && (button[6].symbol == "O"))
+        {
+            O_WINS.SetActive(true);
+        }
+        return;
     }
 }
-
-        //for (int row = 0; row < 3; row++)
-        //{
-        //    for (int col = 0; col < 3; col++)
-        //    {
-        //   TicTacToeBoard[row, col] = (row + col) % 2 == 0 ? button.ChangeToX() : button.ChangeToO();
-        //    }
-        //    //  if(isPressed == true)
-        //    {
-
-        //    }
-        //}
-/*
+    /*
 void WinCondition(Button )
 {
 one of these condition happen:
 
 get all X or O buttons types:
 
-if b1 && b2 && b3 == 1/"X" -> win condition
+if b1 && b2 && b3 == 1/"O" -> win condition
 
     if buttonType [row] = 1,2,3
     if buttonType [row] = 4,5,6
