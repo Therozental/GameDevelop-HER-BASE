@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     bool XTurn = true;
     public GameObject X_WINS;
     public GameObject O_WINS;
-
     [SerializeField] Button[,] TicTacToeBoard = new Button[3, 3];  // 2D array for buttons
     [SerializeField] Button[] button;
 
@@ -137,6 +136,7 @@ public class GameManager : MonoBehaviour
         return;
     }
 }
+
     /*
 void WinCondition(Button )
 {
