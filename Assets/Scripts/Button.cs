@@ -8,18 +8,15 @@ using UnityEngine.UIElements;
 
 public class Button : MonoBehaviour
 {
-
     public TextMeshProUGUI ButtonText;
     public bool isPressed = false;
     public GameManager gameManager;
     public string symbol = null;
-    public bool Interactable = true;
-
+   
     public void OnButtonClick()
     {
         if(isPressed == true)
         {
-            Interactable = false;
             return;
         }
        ChangeText();
@@ -42,6 +39,4 @@ public class Button : MonoBehaviour
             symbol = "O";
         }
     }
-
-    
 }
